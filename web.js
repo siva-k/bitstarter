@@ -1,8 +1,9 @@
 
 var express = require('express');
 var fs= require('fs');
+
 var app = express.createServer(express.logger());
-var buffer = new Buffer(2486);
+var buffer = new Buffer(12000);
 buffer.write(fs.readFileSync('index.html','utf8'),'utf8');
 
 app.get('/', function(request, response) {
@@ -10,10 +11,11 @@ app.get('/', function(request, response) {
 });
 
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 app.listen(port, function()
 {
-  console.log(buffer.toString());
+  //console.log(buffer.toString());
+	console.log("listening on 8080");
 });
 
 
